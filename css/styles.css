@@ -239,9 +239,10 @@ img {
 }
 
 .hero-text p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    font-size: 1rem;
+    margin-bottom: 15px;
     color: #666;
+    line-height: 1.7;
 }
 
 .skill-highlights {
@@ -249,6 +250,7 @@ img {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .skill-tag {
@@ -278,6 +280,8 @@ img {
     border-radius: 50%;
     box-shadow: var(--shadow-dark);
     border: 5px solid white;
+    object-fit: cover;
+    aspect-ratio: 1/1;
 }
 
 /* Home Contact */
