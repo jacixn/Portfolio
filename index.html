@@ -19,10 +19,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#experience">Work Experiences</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Technical Skills</a></li>
-                <li><a href="#coursework">Coursework</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -32,7 +31,7 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
+    <!-- Home Section (with Contact) -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -46,10 +45,96 @@
                         <div class="skill-tag"><i class="fas fa-network-wired"></i> Network Security</div>
                         <div class="skill-tag"><i class="fas fa-bug"></i> Penetration Testing</div>
                     </div>
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#experience" class="btn btn-primary">View My Experience</a>
                 </div>
                 <div class="hero-image">
                     <img src="images/IMG_1604.WEBP" alt="Profile Photo">
+                </div>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="home-contact">
+                <h3>Contact Me</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>youremail@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (123) 456-7890</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>City, State, Country</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experiences Section -->
+    <section id="experience" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experiences</h2>
+                <p>Professional roles and specialized training</p>
+            </div>
+            <div class="experience-grid">
+                <!-- Experience 1 -->
+                <div class="experience-card">
+                    <div class="experience-date">
+                        <span>2023</span>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Advanced Network Security</h3>
+                        <p>Completed comprehensive coursework on securing enterprise networks, including intrusion detection systems, firewall configuration, and security policy development.</p>
+                        <div class="experience-tags">
+                            <span>Network Security</span>
+                            <span>Firewall</span>
+                            <span>IDS/IPS</span>
+                        </div>
+                        <a href="experiences/experience1.html" class="btn experience-btn">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="experience-card">
+                    <div class="experience-date">
+                        <span>2022</span>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Cybersecurity Risk Management</h3>
+                        <p>Studied frameworks and methodologies for identifying, assessing, and mitigating security risks in organizational contexts.</p>
+                        <div class="experience-tags">
+                            <span>NIST Framework</span>
+                            <span>Risk Assessment</span>
+                            <span>Compliance</span>
+                        </div>
+                        <a href="experiences/experience2.html" class="btn experience-btn">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="experience-card">
+                    <div class="experience-date">
+                        <span>2022</span>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Secure Software Development</h3>
+                        <p>Learned principles and practices for developing secure applications, with focus on OWASP Top 10 and secure coding standards.</p>
+                        <div class="experience-tags">
+                            <span>OWASP</span>
+                            <span>Secure Coding</span>
+                            <span>Code Review</span>
+                        </div>
+                        <a href="experiences/experience3.html" class="btn experience-btn">View Details</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,7 +203,7 @@
     </section>
 
     <!-- Technical Skills Section -->
-    <section id="skills" class="section bg-light">
+    <section id="skills" class="section">
         <div class="container">
             <div class="section-header">
                 <h2>Technical Skills</h2>
@@ -193,105 +278,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coursework Experience Section -->
-    <section id="coursework" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Coursework Experience</h2>
-                <p>Academic projects and specialized training</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Advanced Network Security</h3>
-                        <p class="timeline-date">2023</p>
-                        <p>Completed comprehensive coursework on securing enterprise networks, including intrusion detection systems, firewall configuration, and security policy development.</p>
-                        <ul class="timeline-highlights">
-                            <li>Implemented a secure network architecture in a lab environment</li>
-                            <li>Conducted vulnerability assessments and penetration testing</li>
-                            <li>Developed incident response procedures</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Cybersecurity Risk Management</h3>
-                        <p class="timeline-date">2022</p>
-                        <p>Studied frameworks and methodologies for identifying, assessing, and mitigating security risks in organizational contexts.</p>
-                        <ul class="timeline-highlights">
-                            <li>Applied NIST Cybersecurity Framework to case studies</li>
-                            <li>Conducted risk assessments for various scenarios</li>
-                            <li>Developed risk management plans and policies</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Secure Software Development</h3>
-                        <p class="timeline-date">2022</p>
-                        <p>Learned principles and practices for developing secure applications, with focus on OWASP Top 10 and secure coding standards.</p>
-                        <ul class="timeline-highlights">
-                            <li>Implemented secure authentication and authorization</li>
-                            <li>Applied input validation and output encoding techniques</li>
-                            <li>Conducted code reviews and security testing</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-dark">
-        <div class="container">
-            <div class="section-header light">
-                <h2>Contact Me</h2>
-                <p>Let's discuss how we can work together</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>youremail@example.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <p>+1 (123) 456-7890</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>City, State, Country</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
             </div>
         </div>
     </section>
