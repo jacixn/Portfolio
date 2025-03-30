@@ -300,10 +300,11 @@ img {
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .contact-item {
