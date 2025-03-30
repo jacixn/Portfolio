@@ -3,53 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Site</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My GitHub Pages Site</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">Portfolio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Technical Skills</a></li>
+                <li><a href="#coursework">Coursework</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section id="about">
-            <h2>About This Site</h2>
-            <p>This is a test site to demonstrate how GitHub Pages works.</p>
-            <div class="image-container">
-                <img src="images/IMG_1604.WEBP" alt="User Image" id="main-image">
-                <p class="caption">My custom image</p>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </section>
-        
-        <section id="projects">
-            <h2>Sample Projects</h2>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+                    <h2>Cybersecurity Professional</h2>
+                    <p>I'm passionate about securing digital systems and protecting sensitive information. With expertise in vulnerability assessment, network security, and threat analysis, I'm dedicated to creating robust security solutions.</p>
+                    <div class="skill-highlights">
+                        <div class="skill-tag"><i class="fas fa-shield-alt"></i> Security Analysis</div>
+                        <div class="skill-tag"><i class="fas fa-code"></i> Secure Coding</div>
+                        <div class="skill-tag"><i class="fas fa-network-wired"></i> Network Security</div>
+                        <div class="skill-tag"><i class="fas fa-bug"></i> Penetration Testing</div>
+                    </div>
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/IMG_1604.WEBP" alt="Profile Photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projects</h2>
+                <p>Explore my latest work in cybersecurity and related fields</p>
+            </div>
             <div class="project-grid">
+                <!-- Project 1 -->
                 <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Description of project 1 would go here.</p>
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Network Security Implementation</h3>
+                        <p>Implemented comprehensive security measures for enterprise networks</p>
+                        <div class="project-tags">
+                            <span>Firewall</span>
+                            <span>IDS/IPS</span>
+                            <span>VPN</span>
+                        </div>
+                        <a href="projects/project1.html" class="btn">View Project</a>
+                    </div>
                 </div>
+                
+                <!-- Project 2 -->
                 <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Description of project 2 would go here.</p>
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Secure Web Application</h3>
+                        <p>Developed a web application with robust security features</p>
+                        <div class="project-tags">
+                            <span>OWASP</span>
+                            <span>Authentication</span>
+                            <span>Encryption</span>
+                        </div>
+                        <a href="projects/project2.html" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>Vulnerability Assessment Tool</h3>
+                        <p>Created an automated tool for identifying system vulnerabilities</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Scanning</span>
+                            <span>Reporting</span>
+                        </div>
+                        <a href="projects/project3.html" class="btn">View Project</a>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <p>This is a sample contact section.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 GitHub Pages Test Site</p>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>My expertise in cybersecurity and related technologies</p>
+            </div>
+            <div class="skills-container">
+                <!-- Security Tools -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security Tools</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item advanced">
+                            <span>Wireshark</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-item advanced">
+                            <span>Metasploit</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Nessus</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item advanced">
+                            <span>Burp Suite</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Programming -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item advanced">
+                            <span>Python</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Bash</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>C++</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item beginner">
+                            <span>JavaScript</span>
+                            <div class="skill-level">Beginner</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cloud & Infrastructure -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item intermediate">
+                            <span>AWS</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Azure</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item advanced">
+                            <span>Docker</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-item beginner">
+                            <span>Kubernetes</span>
+                            <div class="skill-level">Beginner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coursework Experience Section -->
+    <section id="coursework" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Coursework Experience</h2>
+                <p>Academic projects and specialized training</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Advanced Network Security</h3>
+                        <p class="timeline-date">2023</p>
+                        <p>Completed comprehensive coursework on securing enterprise networks, including intrusion detection systems, firewall configuration, and security policy development.</p>
+                        <ul class="timeline-highlights">
+                            <li>Implemented a secure network architecture in a lab environment</li>
+                            <li>Conducted vulnerability assessments and penetration testing</li>
+                            <li>Developed incident response procedures</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Cybersecurity Risk Management</h3>
+                        <p class="timeline-date">2022</p>
+                        <p>Studied frameworks and methodologies for identifying, assessing, and mitigating security risks in organizational contexts.</p>
+                        <ul class="timeline-highlights">
+                            <li>Applied NIST Cybersecurity Framework to case studies</li>
+                            <li>Conducted risk assessments for various scenarios</li>
+                            <li>Developed risk management plans and policies</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Secure Software Development</h3>
+                        <p class="timeline-date">2022</p>
+                        <p>Learned principles and practices for developing secure applications, with focus on OWASP Top 10 and secure coding standards.</p>
+                        <ul class="timeline-highlights">
+                            <li>Implemented secure authentication and authorization</li>
+                            <li>Applied input validation and output encoding techniques</li>
+                            <li>Conducted code reviews and security testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <div class="section-header light">
+                <h2>Contact Me</h2>
+                <p>Let's discuss how we can work together</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>youremail@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (123) 456-7890</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>City, State, Country</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html> 
