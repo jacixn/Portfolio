@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Strategy Consultant - Jason Antwi</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0 6rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            overflow: visible;
+            min-height: 220px;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 5rem;
+        }
+        
+        .project-header::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 30px;
+            background-color: white;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            z-index: 2;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+        }
+
+        .evidence-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .evidence-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .evidence-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .evidence-item img {
+            width: 100%;
+            height: auto;
+            min-height: 350px;
+            object-fit: scale-down;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .evidence-caption {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .evidence-caption h4 {
+            color: var(--secondary-color);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .evidence-caption p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .key-outcomes {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .key-outcomes h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-item i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .section-highlight {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: rgba(74, 111, 165, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .technology-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .technology-tag {
+            background-color: #f4f4f4;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .technology-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .technology-tag i {
+            margin-right: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .evidence-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .evidence-item img {
+                min-height: 300px;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .strategy-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .strategy-card h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .strategy-icon {
+            float: right;
+            font-size: 2rem;
+            color: rgba(74, 111, 165, 0.2);
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">Portfolio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#experience" class="active">Work Experiences</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#skills">Technical Skills</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Experience Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>Cybersecurity Strategy Consultant</h1>
+            <div class="project-metadata">
+                <div class="metadata-item">
+                    <i class="fas fa-building"></i>
+                    <span>King's College London - Executive Advisory Team</span>
+                </div>
+                <div class="metadata-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>September 2024 - November 2024</span>
+                </div>
+                <div class="metadata-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>London, UK</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Details -->
+    <section class="project-details">
+        <div class="container">
+            <!-- Overview -->
+            <div class="project-section">
+                <h2>Work Experience Overview</h2>
+                
+                <div class="section-highlight">
+                    <p>This role focused on elevating cybersecurity from a technical concern to a strategic business imperative for a rapidly growing technology firm. Working as part of a specialised consultancy team, I developed and presented comprehensive strategic recommendations to executive leadership, emphasising the business-critical nature of robust security governance within high-growth technology organisations.</p>
+                </div>
+                
+                <p>As part of the Executive Advisory Team at King's College London, I was responsible for analysing security vulnerabilities and business risks for a successful tech start-up that had rapidly expanded from 4 to 30 employees while growing its client base to include telecommunications providers and financial institutions. This project-based position involved working directly with board-level stakeholders to drive organisational change in security posture and governance.</p>
+
+                <div class="key-outcomes">
+                    <h3>Key Outcomes</h3>
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>Transformed executive perception of cybersecurity from a purely technical concern to a strategic business imperative</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>Developed comprehensive implementation roadmap for Cyber Essentials controls aligned with the company's growth trajectory</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>Created tailored risk assessment framework that identified 7 critical vulnerabilities in the client's cloud infrastructure</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsibilities -->
+            <div class="project-section">
+                <h2>Key Responsibilities</h2>
+                <ul class="experience-list">
+                    <li>Conducted thorough analysis of existing security controls against UK government's Cyber Essentials framework</li>
+                    <li>Evaluated security implications of the client's rapid business growth from regional to international operations</li>
+                    <li>Developed strategic recommendations for board-level security governance</li>
+                    <li>Identified critical security vulnerabilities specific to cloud-based service providers</li>
+                    <li>Created compelling communication strategies to engage executive stakeholders</li>
+                    <li>Prepared and delivered innovative presentation methodologies for executive audiences</li>
+                    <li>Collaborated with cybersecurity specialists to develop practical implementation guidance</li>
+                </ul>
+            </div>
+
+            <!-- Strategic Advisory Evidence -->
+            <div class="project-section">
+                <h2>Strategic Advisory Evidence</h2>
+                <div class="strategy-card">
+                    <i class="fas fa-chart-line strategy-icon"></i>
+                    <h4>Business Impact Analysis</h4>
+                    <p>Development of comprehensive assessment demonstrating the direct financial impact of potential security breaches on the client's service offerings and reputation</p>
+                </div>
+                
+                <div class="strategy-card">
+                    <i class="fas fa-sitemap strategy-icon"></i>
+                    <h4>Growth-aligned Security Planning</h4>
+                    <p>Creation of a phased implementation roadmap that balanced immediate security needs with long-term strategic objectives while accommodating rapid organisational growth</p>
+                </div>
+                
+                <div class="strategy-card">
+                    <i class="fas fa-users strategy-icon"></i>
+                    <h4>Executive Communication Strategy</h4>
+                    <p>Design of innovative presentation techniques specifically crafted to engage executive stakeholders and overcome "security fatigue" at board level</p>
+                </div>
+                
+                <div class="strategy-card">
+                    <i class="fas fa-clipboard-check strategy-icon"></i>
+                    <h4>Regulatory Compliance Mapping</h4>
+                    <p>Comprehensive analysis of security requirements across international jurisdictions relevant to the client's expansion plans</p>
+                </div>
+            </div>
+
+            <!-- Technical Achievements -->
+            <div class="project-section">
+                <h2>Technical Achievements</h2>
+                <ul class="experience-list">
+                    <li>Successfully mapped NCSC Cyber Essentials controls to the specific technical environment of a cloud-based analytics provider</li>
+                    <li>Developed comprehensive threat modelling for sensitive data processing in multi-tenant cloud environments</li>
+                    <li>Created strategic risk assessment framework specifically tailored for rapidly scaling technology businesses</li>
+                    <li>Implemented industry-specific security controls for financial services client requirements</li>
+                    <li>Designed practical roadmap for security control implementation alongside business growth</li>
+                    <li>Conducted gap analysis between current security posture and regulatory requirements for international expansion</li>
+                </ul>
+            </div>
+
+            <!-- Technologies Used -->
+            <div class="project-section">
+                <h2>Technologies and Frameworks Used</h2>
+                <div class="technology-tags">
+                    <div class="technology-tag"><i class="fas fa-shield-alt"></i> NCSC Cyber Essentials</div>
+                    <div class="technology-tag"><i class="fas fa-project-diagram"></i> NIST Cybersecurity Framework</div>
+                    <div class="technology-tag"><i class="fas fa-cloud"></i> Cloud Security Alliance Controls</div>
+                    <div class="technology-tag"><i class="fas fa-exclamation-triangle"></i> Risk Assessment Methodologies</div>
+                    <div class="technology-tag"><i class="fas fa-comments"></i> Strategic Communications</div>
+                    <div class="technology-tag"><i class="fas fa-briefcase"></i> Executive Advisory Techniques</div>
+                    <div class="technology-tag"><i class="fas fa-sitemap"></i> Threat Modelling</div>
+                    <div class="technology-tag"><i class="fas fa-handshake"></i> Stakeholder Engagement</div>
+                    <div class="technology-tag"><i class="fas fa-balance-scale"></i> Regulatory Compliance Mapping</div>
+                </div>
+            </div>
+
+            <!-- Reflection -->
+            <div class="project-section">
+                <h2>Experience Impact & Reflection</h2>
+                <div class="section-highlight">
+                    <p>This consultancy role significantly enhanced my ability to translate complex technical security concepts into strategic business imperatives that resonate with executive leadership. The project demonstrated the critical importance of effective stakeholder communication in driving organisational change around security practices.</p>
+                </div>
+                <p>Working with the Executive Advisory Team provided invaluable experience in engaging with board-level decision-makers on cybersecurity matters. The innovative presentation approach we developed—combining role-playing scenarios with video elements demonstrating real-world security breaches—proved highly effective at maintaining executive engagement and driving meaningful action.</p>
+                <p>Our team's final presentation to the client's board successfully transformed their perception of cybersecurity from a peripheral technical issue to a central business concern. Following our engagement, the client implemented all recommended security controls and established a dedicated security governance committee with board-level representation, demonstrating the significant impact of our strategic advisory work.</p>
+                <p>The consultancy methodologies implemented during this project demonstrate my ability to:</p>
+                <ul class="experience-list">
+                    <li>Translate technical security concepts into business-relevant strategic imperatives</li>
+                    <li>Engage effectively with executive stakeholders on complex security matters</li>
+                    <li>Develop practical implementation roadmaps aligned with business objectives</li>
+                    <li>Balance immediate security needs with long-term strategic goals</li>
+                    <li>Drive organisational change through compelling communication strategies</li>
+                </ul>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-navigation">
+                <a href="../index.html#experience" class="btn"><i class="fas fa-arrow-left"></i> Back to Experiences</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jason Antwi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html> 
