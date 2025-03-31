@@ -9,6 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Override any potential project image issues */
+        .project-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -129,7 +138,10 @@
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/project1.jpg" alt="Project 1">
+                        <!-- Temporarily hide project images until proper ones are added -->
+                        <div style="background-color: #e9ecef; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-shield-alt" style="font-size: 3rem; color: #4a6fa5;"></i>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Network Security Implementation</h3>
@@ -146,7 +158,10 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/project2.jpg" alt="Project 2">
+                        <!-- Temporarily hide project images until proper ones are added -->
+                        <div style="background-color: #e9ecef; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-code" style="font-size: 3rem; color: #4a6fa5;"></i>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Secure Web Application</h3>
@@ -163,7 +178,10 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/project3.jpg" alt="Project 3">
+                        <!-- Temporarily hide project images until proper ones are added -->
+                        <div style="background-color: #e9ecef; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bug" style="font-size: 3rem; color: #4a6fa5;"></i>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Vulnerability Assessment Tool</h3>
