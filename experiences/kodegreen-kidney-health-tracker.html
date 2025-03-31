@@ -467,6 +467,21 @@
             margin: 0;
             line-height: 1.6;
         }
+
+        /* Additional fix for image display */
+        .showcase-image img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            object-fit: contain !important;
+            background-color: white !important;
+        }
+        
+        /* Override any problematic styles */
+        img {
+            display: block !important;
+            max-width: 100% !important;
+        }
     </style>
 </head>
 <body>
@@ -516,7 +531,7 @@
         <div class="container">
             <!-- Featured Project Image -->
             <div class="showcase-image" style="height: auto; margin-bottom: 2rem; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                <img src="../images/experiences/Web%20Developer/BGR.png" alt="KodeGreen Kidney Health Dashboard" style="width: 100%; display: block; object-fit: contain;">
+                <img src="../images/experiences/Web Developer/BGR.png" alt="KodeGreen Kidney Health Dashboard" style="width: 100%; height: auto; display: block; object-fit: contain;">
             </div>
             
             <!-- Overview -->
@@ -580,7 +595,7 @@
                 <div class="showcase-gallery">
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web%20Developer/BTR.png" alt="Patient Dashboard" style="object-fit: contain;">
+                            <img src="../images/experiences/Web Developer/BTR.png" alt="Patient Dashboard" style="object-fit: contain; width: 100%; height: 100%;">
                         </div>
                         <div class="showcase-content">
                             <h4>Patient Dashboard</h4>
@@ -590,7 +605,7 @@
                     
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web%20Developer/AFA.png" alt="Clinical Interface" style="object-fit: contain;">
+                            <img src="../images/experiences/Web Developer/AFA.png" alt="Clinical Interface" style="object-fit: contain; width: 100%; height: 100%;">
                         </div>
                         <div class="showcase-content">
                             <h4>Clinical Provider Interface</h4>
@@ -600,7 +615,7 @@
                     
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web%20Developer/r3.png" alt="Data Visualization" style="object-fit: contain;">
+                            <img src="../images/experiences/Web Developer/r3.png" alt="Data Visualization" style="object-fit: contain; width: 100%; height: 100%;">
                         </div>
                         <div class="showcase-content">
                             <h4>Interactive Data Visualization</h4>
@@ -610,7 +625,7 @@
                     
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web%20Developer/FF.png" alt="Admin Console" style="object-fit: contain;">
+                            <img src="../images/experiences/Web Developer/FF.png" alt="Admin Console" style="object-fit: contain; width: 100%; height: 100%;">
                         </div>
                         <div class="showcase-content">
                             <h4>Administrative Console</h4>
