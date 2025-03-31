@@ -22,15 +22,30 @@
         .project-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 4rem 0 4rem 0;
-            margin-bottom: 2rem;
+            padding: 4rem 0 6rem 0; /* Increased bottom padding to create more space */
+            margin-bottom: 3rem; /* Increased margin below header */
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             position: relative;
             border-bottom: 1px solid rgba(255,255,255,0.2);
             overflow: visible;
-            min-height: 200px;
+            min-height: 220px; /* Slightly increased min-height */
             display: flex;
             align-items: center;
+        }
+        
+        /* Add a decorative cap at the bottom of the header */
+        .project-header::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 30px;
+            background-color: white;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            z-index: 2;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
         }
         
         .project-header:after {
