@@ -345,17 +345,19 @@ img {
 /* Work Experience Section */
 .experience-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 25px;
 }
 
 .experience-card {
     display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    height: 100%;
 }
 
 .experience-card:hover {
@@ -363,32 +365,44 @@ img {
     box-shadow: var(--shadow-dark);
 }
 
-.experience-date {
+.experience-header {
     background-color: var(--secondary-color);
     color: white;
-    min-width: 100px;
+    padding: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    font-weight: bold;
+}
+
+.experience-title {
+    margin: 0;
     font-size: 1.2rem;
-    padding: 0 20px;
+}
+
+.experience-date {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
 }
 
 .experience-content {
     padding: 20px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.experience-content h3 {
+.experience-organization {
     color: var(--primary-color);
-    margin-bottom: 10px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
-.experience-content p {
+.experience-description {
     color: #666;
     margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 .experience-tags {
@@ -409,6 +423,82 @@ img {
 .experience-btn {
     padding: 8px 15px;
     font-size: 0.9rem;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* Detailed experience page styles */
+.experience-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.experience-image-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.experience-image-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.experience-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.experience-list-title {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+
+.experience-list {
+    list-style-type: none;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.experience-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.experience-list li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 5px;
+    font-size: 1.2rem;
+}
+
+.technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.technology-tag {
+    background-color: rgba(74, 111, 165, 0.1);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
 }
 
 /* Projects Section */
@@ -581,6 +671,14 @@ img {
     .social-links {
         margin-top: 20px;
     }
+    
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-image-gallery {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
@@ -610,13 +708,13 @@ img {
         grid-template-columns: 1fr;
     }
     
-    .experience-card {
+    .experience-header {
         flex-direction: column;
+        align-items: flex-start;
     }
     
     .experience-date {
-        padding: 10px;
-        width: 100%;
+        margin-top: 5px;
     }
 }
 
