@@ -22,26 +22,26 @@
         .project-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 4rem 0 6rem 0; /* Increased bottom padding to create more space */
-            margin-bottom: 3rem; /* Increased margin below header */
+            padding: 4rem 0 10rem 0; /* Significantly increased bottom padding to create the 2-inch gap */
+            margin-bottom: 3rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             position: relative;
             border-bottom: 1px solid rgba(255,255,255,0.2);
             overflow: visible;
-            min-height: 220px; /* Slightly increased min-height */
+            min-height: 300px; /* Increased minimum height */
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Changed from center to flex-start to push content to top */
+            padding-top: 5rem; /* Added extra top padding */
         }
         
-        /* Add a decorative cap at the bottom of the header */
         .project-header::before {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -20px; /* Moved lower */
             left: 50%;
             transform: translateX(-50%);
             width: 70%;
-            height: 30px;
+            height: 40px; /* Made taller */
             background-color: white;
             border-radius: 50% 50% 0 0 / 100% 100% 0 0;
             z-index: 2;
@@ -69,7 +69,7 @@
         }
         
         .project-header h1 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 3.5rem; /* Increased space between title and metadata */
             font-size: 2.8rem;
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
