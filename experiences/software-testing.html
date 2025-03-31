@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Testing - Jason Antwi</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0 6rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            overflow: visible;
+            min-height: 220px;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 5rem;
+        }
+        
+        .project-header::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 30px;
+            background-color: white;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            z-index: 2;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+        }
+
+        .evidence-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .evidence-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .evidence-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .evidence-item img {
+            width: 100%;
+            height: auto;
+            min-height: 350px;
+            object-fit: scale-down;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .evidence-caption {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .evidence-caption h4 {
+            color: var(--secondary-color);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .evidence-caption p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .key-outcomes {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .key-outcomes h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-item i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .section-highlight {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: rgba(74, 111, 165, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .technology-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .technology-tag {
+            background-color: #f4f4f4;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .technology-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .technology-tag i {
+            margin-right: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .evidence-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .evidence-item img {
+                min-height: 300px;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .test-result-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #f8f9fa, rgba(74, 111, 165, 0.1));
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .test-result-banner .stats {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .test-result-banner .stats span {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">Portfolio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#experience" class="active">Work Experiences</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#skills">Technical Skills</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Experience Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>Software Testing</h1>
+            <div class="project-metadata">
+                <div class="metadata-item">
+                    <i class="fas fa-building"></i>
+                    <span>King's College London - Software Validation Team</span>
+                </div>
+                <div class="metadata-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>October 2024 - November 2024</span>
+                </div>
+                <div class="metadata-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>London, UK</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Details -->
+    <section class="project-details">
+        <div class="container">
+            <!-- Overview -->
+            <div class="project-section">
+                <h2>Work Experience Overview</h2>
+                
+                <div class="section-highlight">
+                    <p>This role focused on implementing comprehensive software testing methodologies to ensure product reliability and compliance with requirements. Working within a specialised quality assurance team, I developed and executed test strategies for complex e-commerce systems with particular emphasis on discount calculation logic and payment processing validation.</p>
+                </div>
+                
+                <p>As part of the Software Validation Team at King's College London, I was responsible for designing and implementing testing frameworks for a sophisticated shopping cart system. This project-based position involved working in a structured testing environment with an emphasis on systematic fault identification and comprehensive test coverage.</p>
+
+                <div class="test-result-banner">
+                    <div class="stats">
+                        Code Coverage: <span>92%</span> &nbsp;|&nbsp; Critical Defects Found: <span>14</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-check-circle fa-2x" style="color: #28a745;"></i>
+                    </div>
+                </div>
+
+                <div class="key-outcomes">
+                    <h3>Key Outcomes</h3>
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>Identified 14 critical functional defects in the e-commerce system that would have impacted a large majority of customer transactions</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>Developed a comprehensive test suite that achieved 92% code coverage across core system components</div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>Reduced potential customer payment errors significantly through rigorous boundary value testing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsibilities -->
+            <div class="project-section">
+                <h2>Key Responsibilities</h2>
+                <ul class="experience-list">
+                    <li>Designed and implemented test cases for complex e-commerce functionality</li>
+                    <li>Conducted thorough structural testing of discount calculation algorithms</li>
+                    <li>Performed boundary value analysis to identify edge cases in payment processing</li>
+                    <li>Implemented mock objects to isolate and test individual system components</li>
+                    <li>Documented and reported discovered defects with detailed reproduction steps</li>
+                    <li>Verified critical system functionality against specified requirements</li>
+                    <li>Created automated test suites to ensure ongoing system reliability</li>
+                </ul>
+            </div>
+
+            <!-- Testing Evidence -->
+            <div class="project-section">
+                <h2>Testing Evidence</h2>
+                <div class="evidence-gallery">
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Software testing/test fail.png" alt="Failed Test Cases">
+                        <div class="evidence-caption">
+                            <h4>Structural Testing</h4>
+                            <p>Initial test runs revealed critical logic errors in the discount calculation system, with clear error messages identifying the source of the failures</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Software testing/Test pass.png" alt="Successful Test Cases">
+                        <div class="evidence-caption">
+                            <h4>Functional Testing</h4>
+                            <p>Comprehensive test suite successfully validating core e-commerce functionality after fixing identified defects</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Software testing/mocking.png" alt="Mocking Implementation">
+                        <div class="evidence-caption">
+                            <h4>Mock Implementation</h4>
+                            <p>Creation of mock objects to isolate and test discount calculations and payment processing modules independently</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Software testing/test pass 3.png" alt="Boundary Value Testing">
+                        <div class="evidence-caption">
+                            <h4>Boundary Value Testing</h4>
+                            <p>Edge case tests for discount thresholds, payment validation, and quantity limits ensuring all boundary conditions were properly handled</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Achievements -->
+            <div class="project-section">
+                <h2>Technical Achievements</h2>
+                <ul class="experience-list">
+                    <li>Successfully implemented unit tests with mocking frameworks to isolate system components</li>
+                    <li>Developed comprehensive boundary value tests for complex numerical calculations</li>
+                    <li>Created test suites for multiple discount strategies and customer classification types</li>
+                    <li>Conducted thorough negative testing to validate system error handling</li>
+                    <li>Implemented structural testing to ensure all logic paths were properly validated</li>
+                    <li>Performed integration testing across multiple interdependent system components</li>
+                    <li>Developed detailed test documentation with clear traceability to requirements</li>
+                </ul>
+            </div>
+
+            <!-- Technologies Used -->
+            <div class="project-section">
+                <h2>Technologies Used</h2>
+                <div class="technology-tags">
+                    <div class="technology-tag"><i class="fab fa-java"></i> JUnit Testing Framework</div>
+                    <div class="technology-tag"><i class="fas fa-vial"></i> Mockito</div>
+                    <div class="technology-tag"><i class="fas fa-chart-pie"></i> Code Coverage Tools</div>
+                    <div class="technology-tag"><i class="fas fa-code-branch"></i> Test-Driven Development</div>
+                    <div class="technology-tag"><i class="fas fa-border-all"></i> Boundary Value Analysis</div>
+                    <div class="technology-tag"><i class="fas fa-object-group"></i> Equivalence Partitioning</div>
+                    <div class="technology-tag"><i class="fas fa-project-diagram"></i> Structural Testing</div>
+                    <div class="technology-tag"><i class="fab fa-java"></i> Java</div>
+                    <div class="technology-tag"><i class="fab fa-python"></i> Python</div>
+                    <div class="technology-tag"><i class="fas fa-tasks"></i> Software Testing Methodologies</div>
+                </div>
+            </div>
+
+            <!-- Reflection -->
+            <div class="project-section">
+                <h2>Experience Impact & Reflection</h2>
+                <div class="section-highlight">
+                    <p>This role significantly enhanced my ability to design and implement comprehensive testing strategies for complex software systems. The systematic approach to identifying and documenting defects developed my skills in ensuring software quality and reliability.</p>
+                </div>
+                <p>Working with the Software Validation Team at King's College London provided valuable experience with industry-standard testing methodologies and tools. The knowledge gained from this experience has directly contributed to my expertise in quality assurance and software validation.</p>
+                <p>The testing methodologies implemented during this project demonstrate my ability to:</p>
+                <ul class="experience-list">
+                    <li>Design test cases that effectively validate compliance with requirements</li>
+                    <li>Identify and document software defects with clear reproduction steps</li>
+                    <li>Apply various testing techniques including unit, integration, and system testing</li>
+                    <li>Develop comprehensive test documentation for complex systems</li>
+                    <li>Isolate and test individual components using mock objects</li>
+                    <li>Balance testing coverage with time and resource constraints</li>
+                </ul>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-navigation">
+                <a href="../index.html#experience" class="btn"><i class="fas fa-arrow-left"></i> Back to Experiences</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jason Antwi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html> 
