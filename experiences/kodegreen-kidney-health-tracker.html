@@ -516,7 +516,7 @@
         <div class="container">
             <!-- Featured Project Image -->
             <div class="showcase-image" style="height: auto; margin-bottom: 2rem; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                <img src="../images/experiences/Web Developer/BGR.png" alt="KodeGreen Kidney Health Dashboard" style="width: 100%; display: block; object-fit: contain;">
+                <img src="../images/experiences/Web%20Developer/BGR.png" alt="KodeGreen Kidney Health Dashboard" style="width: 100%; display: block; object-fit: contain;">
             </div>
             
             <!-- Overview -->
@@ -580,7 +580,7 @@
                 <div class="showcase-gallery">
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web Developer/BTR.png" alt="Patient Dashboard" style="object-fit: contain;">
+                            <img src="../images/experiences/Web%20Developer/BTR.png" alt="Patient Dashboard" style="object-fit: contain;">
                         </div>
                         <div class="showcase-content">
                             <h4>Patient Dashboard</h4>
@@ -590,7 +590,7 @@
                     
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web Developer/AFA.png" alt="Clinical Interface" style="object-fit: contain;">
+                            <img src="../images/experiences/Web%20Developer/AFA.png" alt="Clinical Interface" style="object-fit: contain;">
                         </div>
                         <div class="showcase-content">
                             <h4>Clinical Provider Interface</h4>
@@ -600,7 +600,7 @@
                     
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web Developer/r3.png" alt="Data Visualization" style="object-fit: contain;">
+                            <img src="../images/experiences/Web%20Developer/r3.png" alt="Data Visualization" style="object-fit: contain;">
                         </div>
                         <div class="showcase-content">
                             <h4>Interactive Data Visualization</h4>
@@ -610,13 +610,148 @@
                     
                     <div class="showcase-item">
                         <div class="showcase-image">
-                            <img src="../images/experiences/Web Developer/FF.png" alt="Admin Console" style="object-fit: contain;">
+                            <img src="../images/experiences/Web%20Developer/FF.png" alt="Admin Console" style="object-fit: contain;">
                         </div>
                         <div class="showcase-content">
                             <h4>Administrative Console</h4>
                             <p>Engineered a secure administrative interface for system management, user provisioning, and comprehensive audit logging to ensure data integrity and security compliance.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Code Samples -->
+            <div class="project-section">
+                <h2>Backend Code Examples</h2>
+                
+                <div class="contribution-card">
+                    <h4><i class="fas fa-code contribution-icon"></i> RESTful API Endpoint</h4>
+                    <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; line-height: 1.5;">
+// Patient data API endpoint with authentication middleware
+const express = require('express');
+const router = express.Router();
+const { authenticateUser, authorizeRole } = require('../middlewares/auth');
+const PatientController = require('../controllers/patientController');
+
+/**
+ * @route   GET /api/patients/:id/metrics
+ * @desc    Get patient eGFR metrics with filtering options
+ * @access  Private (Clinicians and authorized patients only)
+ */
+router.get('/patients/:id/metrics', 
+  authenticateUser, 
+  authorizeRole(['clinician', 'patient']), 
+  async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { startDate, endDate, limit } = req.query;
+      
+      // Additional security for patient data - patients can only access their own data
+      if (req.user.role === 'patient' && req.user.id !== id) {
+        return res.status(403).json({ 
+          success: false, 
+          message: 'Access denied: Patients may only view their own health records' 
+        });
+      }
+      
+      const metrics = await PatientController.getPatientMetrics(
+        id, 
+        startDate, 
+        endDate, 
+        limit
+      );
+      
+      // Calculate trend indicators for the frontend
+      const trendData = metrics.length > 1 ? 
+        PatientController.calculateHealthTrends(metrics) : null;
+      
+      return res.status(200).json({
+        success: true,
+        data: {
+          metrics,
+          trendData,
+          patientStatus: PatientController.evaluateHealthStatus(metrics)
+        }
+      });
+    } catch (error) {
+      console.error(`Error fetching patient metrics: ${error.message}`);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to retrieve patient metrics',
+        error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      });
+    }
+});
+
+module.exports = router;</pre>
+                </div>
+                
+                <div class="contribution-card">
+                    <h4><i class="fas fa-database contribution-icon"></i> Database Connection Pool</h4>
+                    <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; line-height: 1.5;">
+// Database connection pooling implementation
+const mysql = require('mysql2/promise');
+const { logger } = require('../utils/logger');
+
+// Environment variables with AWS RDS configuration
+const {
+  DB_HOST = process.env.DB_HOST,
+  DB_USER = process.env.DB_USER,
+  DB_PASSWORD = process.env.DB_PASSWORD,
+  DB_NAME = process.env.DB_NAME,
+  DB_PORT = process.env.DB_PORT || 3306
+} = process.env;
+
+// Connection pool configuration for optimal performance
+const poolConfig = {
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASSWORD,
+  database: DB_NAME,
+  port: DB_PORT,
+  waitForConnections: true,
+  connectionLimit: 10, // Adjust based on load requirements
+  queueLimit: 0,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0,
+  // SSL configuration for AWS RDS
+  ssl: process.env.NODE_ENV === 'production' ? {
+    rejectUnauthorized: true,
+    ca: [fs.readFileSync('./certs/rds-ca-2019-root.pem')]
+  } : undefined
+};
+
+// Create connection pool
+const pool = mysql.createPool(poolConfig);
+
+// Test connection when service starts
+(async function validateConnection() {
+  try {
+    const connection = await pool.getConnection();
+    logger.info('Database connection established successfully');
+    connection.release();
+  } catch (error) {
+    logger.error(`Database connection failed: ${error.message}`);
+    process.exit(1); // Exit if we can't connect to database
+  }
+})();
+
+// Helper to execute queries with automatic connection management
+async function query(sql, params) {
+  try {
+    const [results] = await pool.execute(sql, params);
+    return results;
+  } catch (error) {
+    logger.error(`Database query failed: ${error.message}`);
+    logger.error(`Query: ${sql}`);
+    throw error;
+  }
+}
+
+module.exports = {
+  query,
+  pool
+};</pre>
                 </div>
             </div>
 
