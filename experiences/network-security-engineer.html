@@ -20,12 +20,13 @@
         }
         
         .project-header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
             padding: 3rem 0;
             margin-bottom: 2rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         
         .project-header:after {
@@ -40,9 +41,10 @@
         
         .project-header h1 {
             margin-bottom: 1.5rem;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
         }
         
         .project-metadata {
@@ -50,6 +52,8 @@
             padding: 1rem 1.5rem;
             border-radius: 8px;
             display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .metadata-item {
@@ -84,6 +88,7 @@
             position: relative;
             display: inline-block;
             padding-bottom: 0.5rem;
+            font-size: 1.8rem;
         }
         
         .project-section h2:after {
@@ -143,6 +148,81 @@
         .project-navigation .btn i {
             margin-right: 0.5rem;
         }
+        
+        /* New styles for the improved image display */
+        .network-diagram {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .network-diagram img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .network-diagram figcaption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .evidence-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .evidence-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+        }
+        
+        .evidence-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .evidence-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .evidence-caption {
+            padding: 1rem;
+            background-color: #fff;
+            font-size: 0.9rem;
+        }
+        
+        .evidence-caption h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .evidence-caption p {
+            margin: 0;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .evidence-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .network-diagram img {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -195,11 +275,11 @@
                 <h2>Overview</h2>
                 <p>As part of a specialised cybersecurity team at King's College London, I was responsible for network defence implementation and security analysis on critical infrastructure. This project-based role involved working in a collaborative team environment with an emphasis on practical application of cybersecurity principles.</p>
                 
-                <!-- Network Topology Diagram -->
-                <div class="network-diagram" style="margin: 2rem 0; text-align: center;">
-                    <img src="../images/experiences/network-topology.png" alt="Network Topology Diagram" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border: 1px solid #eee;">
-                    <p style="margin-top: 1rem; font-style: italic; color: #666;">Figure 1: Network Topology - King's College London VM Network Security Test Environment</p>
-                </div>
+                <!-- Network Topology Diagram - Now with smaller size -->
+                <figure class="network-diagram">
+                    <img src="../images/experiences/network-topology.png" alt="Network Topology Diagram">
+                    <figcaption>Figure 1: Network Topology - King's College London VM Network Security Test Environment</figcaption>
+                </figure>
             </div>
 
             <!-- Responsibilities -->
@@ -226,6 +306,39 @@
                     <li>Conducted detailed protocol-level security analysis of TCP/IP traffic</li>
                     <li>Achieved significant improvement in network resilience against denial-of-service attacks</li>
                 </ul>
+                
+                <!-- Project Evidence Gallery with the additional images -->
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--secondary-color);">Security Implementation Evidence</h3>
+                <div class="evidence-gallery">
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Iptables rules.png" alt="Iptables Firewall Rules">
+                        <div class="evidence-caption">
+                            <h4>Firewall Configuration</h4>
+                            <p>Implementation of custom iptables rules to defend against various attack vectors using hashlimit modules for rate limiting</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Iperf3 throughput.png" alt="Network Throughput Analysis">
+                        <div class="evidence-caption">
+                            <h4>Network Performance</h4>
+                            <p>Baseline throughput measurements using iperf3 to establish normal performance metrics for anomaly detection</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <img src="../images/experiences/Reduction of throughput.png" alt="Attack Impact Analysis">
+                        <div class="evidence-caption">
+                            <h4>Attack Impact Analysis</h4>
+                            <p>Measurement of network throughput reduction during attack scenarios, demonstrating the effectiveness of mitigation strategies</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <img src="../images/experiences/ping test.png" alt="Network Connectivity Testing">
+                        <div class="evidence-caption">
+                            <h4>Connectivity Testing</h4>
+                            <p>Basic ICMP ping testing to verify network connectivity while implementing security controls</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Technologies Used -->
