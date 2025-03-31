@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodeGreen Kidney Health Tracker - Jason Antwi</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0 6rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            overflow: visible;
+            min-height: 220px;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 5rem;
+        }
+        
+        .project-header::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 30px;
+            background-color: white;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            z-index: 2;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+        }
+
+        .evidence-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .evidence-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .evidence-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .evidence-item img {
+            width: 100%;
+            height: auto;
+            min-height: 350px;
+            object-fit: scale-down;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .evidence-caption {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .evidence-caption h4 {
+            color: var(--secondary-color);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .evidence-caption p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .key-outcomes {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .key-outcomes h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-item i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .section-highlight {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: rgba(74, 111, 165, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .technology-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .technology-tag {
+            background-color: #f4f4f4;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .technology-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .technology-tag i {
+            margin-right: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .evidence-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .evidence-item img {
+                min-height: 300px;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .contribution-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .contribution-card h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contribution-icon {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        
+        .tech-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-area {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .tech-area h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-area h4 i {
+            margin-right: 0.75rem;
+            color: var(--accent-color);
+        }
+        
+        .tech-area p {
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .tech-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .outcome-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .outcome-card h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .outcome-card i {
+            margin-right: 0.75rem;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">Portfolio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#experience" class="active">Work Experiences</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#skills">Technical Skills</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Experience Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>KodeGreen Kidney Health Tracker</h1>
+            <div class="project-metadata">
+                <div class="metadata-item">
+                    <i class="fas fa-building"></i>
+                    <span>Kingston University</span>
+                </div>
+                <div class="metadata-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>January - March 2023</span>
+                </div>
+                <div class="metadata-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>London, UK</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Details -->
+    <section class="project-details">
+        <div class="container">
+            <!-- Overview -->
+            <div class="project-section">
+                <h2>Project Overview</h2>
+                
+                <div class="section-highlight">
+                    <p>Spearheaded the complete full-stack development of a sophisticated web application for monitoring kidney health metrics, personally implementing both frontend interfaces and backend architecture whilst working in a collaborative team environment. The application enabled patients and clinicians to calculate, visualise, and track kidney function through eGFR (estimated Glomerular Filtration Rate) measurements with tailored interfaces for different user roles.</p>
+                </div>
+                
+                <div class="tech-section">
+                    <div class="tech-area">
+                        <h4><i class="fas fa-laptop-code"></i> Frontend</h4>
+                        <ul class="experience-list">
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>Chart.js for dynamic data visualisation</li>
+                            <li>Responsive design for all devices</li>
+                            <li>Role-based user interfaces</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-area">
+                        <h4><i class="fas fa-server"></i> Backend</h4>
+                        <ul class="experience-list">
+                            <li>Node.js with Express.js framework</li>
+                            <li>RESTful API architecture</li>
+                            <li>MySQL database via AWS RDS</li>
+                            <li>AWS cloud infrastructure (EC2, Route53, S3)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-area">
+                        <h4><i class="fas fa-shield-alt"></i> Security</h4>
+                        <ul class="experience-list">
+                            <li>Bcrypt password encryption</li>
+                            <li>Session management</li>
+                            <li>reCAPTCHA integration</li>
+                            <li>Access control middleware</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-area">
+                        <h4><i class="fas fa-code-branch"></i> Development</h4>
+                        <ul class="experience-list">
+                            <li>GitHub version control with feature branches</li>
+                            <li>Docker containerization</li>
+                            <li>Continuous integration</li>
+                            <li>Comprehensive documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Technical Contributions -->
+            <div class="project-section">
+                <h2>Key Technical Contributions</h2>
+                
+                <div class="contribution-card">
+                    <h4><i class="fas fa-desktop contribution-icon"></i> Frontend Development</h4>
+                    <ul class="experience-list">
+                        <li>Designed and implemented responsive user interfaces for patients, clinicians and guest users</li>
+                        <li>Created dynamic health status calculators with colour-coded visual feedback based on kidney function levels</li>
+                        <li>Developed interactive data visualisation using Chart.js to display patient health trends over time</li>
+                        <li>Engineered frontend validation to ensure data integrity before submission to the backend</li>
+                        <li>Implemented user authentication interfaces with security features including reCAPTCHA</li>
+                    </ul>
+                </div>
+                
+                <div class="contribution-card">
+                    <h4><i class="fas fa-cogs contribution-icon"></i> Backend Architecture</h4>
+                    <ul class="experience-list">
+                        <li>Architected a robust Node.js server implementation with Express framework</li>
+                        <li>Engineered database connection pooling to optimise performance and resource utilisation</li>
+                        <li>Developed secure RESTful API endpoints facilitating communication between frontend components and database</li>
+                        <li>Implemented intelligent static file serving to reduce server load and improve performance</li>
+                        <li>Created modular backend components with comprehensive JSDoc documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="contribution-card">
+                    <h4><i class="fas fa-user-shield contribution-icon"></i> Security Implementation</h4>
+                    <ul class="experience-list">
+                        <li>Designed and implemented complete authentication workflows with session management</li>
+                        <li>Deployed Bcrypt hashing to securely store user credentials, protecting against database breaches</li>
+                        <li>Engineered session timeout controls and middleware authentication checks</li>
+                        <li>Protected sensitive routes with comprehensive access control mechanisms</li>
+                        <li>Safeguarded database credentials using environment variables to prevent exposure in version control</li>
+                    </ul>
+                </div>
+                
+                <div class="contribution-card">
+                    <h4><i class="fas fa-database contribution-icon"></i> Database Design</h4>
+                    <ul class="experience-list">
+                        <li>Designed efficient relational database schema for storing patient records and health data</li>
+                        <li>Created optimised SQL queries to retrieve and analyse patient health information</li>
+                        <li>Implemented database transaction handling to ensure data integrity</li>
+                        <li>Established secure database access patterns to prevent injection attacks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project Outcomes -->
+            <div class="project-section">
+                <h2>Project Outcomes</h2>
+                <div class="outcome-grid">
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-check-circle"></i> Fully Functional Web Application</h4>
+                        <p>Successfully delivered a complete health tracking platform with distinct, user-friendly interfaces for patients, clinicians, and guest users. Each interface was tailored to the specific needs and permissions of different user roles.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-chart-line"></i> Sophisticated Health Calculation System</h4>
+                        <p>Implemented an advanced eGFR calculation engine that processed patient data to provide accurate kidney function assessments with dynamic visual feedback based on health status thresholds.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-lock"></i> Secure Patient Information Platform</h4>
+                        <p>Created a secure system for handling sensitive medical data with robust authentication, encryption, and access controls that protected patient privacy while enabling appropriate access for healthcare providers.</p>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-cloud"></i> Scalable Cloud Infrastructure</h4>
+                        <p>Established a comprehensive AWS-based hosting environment supporting immediate deployment and future expansion, with optimized performance and reliability features.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="project-section">
+                <h2>Technical Skills Demonstrated</h2>
+                <div class="technology-tags">
+                    <div class="technology-tag"><i class="fas fa-code"></i> Full-stack Development</div>
+                    <div class="technology-tag"><i class="fas fa-palette"></i> UI/UX Design</div>
+                    <div class="technology-tag"><i class="fab fa-node-js"></i> Node.js</div>
+                    <div class="technology-tag"><i class="fas fa-server"></i> Express.js</div>
+                    <div class="technology-tag"><i class="fas fa-exchange-alt"></i> RESTful APIs</div>
+                    <div class="technology-tag"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="technology-tag"><i class="fab fa-aws"></i> AWS Cloud Services</div>
+                    <div class="technology-tag"><i class="fas fa-shield-alt"></i> Security Implementation</div>
+                    <div class="technology-tag"><i class="fas fa-chart-bar"></i> Data Visualization</div>
+                    <div class="technology-tag"><i class="fab fa-docker"></i> Docker</div>
+                    <div class="technology-tag"><i class="fab fa-git-alt"></i> Version Control</div>
+                    <div class="technology-tag"><i class="fas fa-file-code"></i> Technical Documentation</div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="project-navigation">
+                <a href="../index.html#experience" class="btn"><i class="fas fa-arrow-left"></i> Back to Experiences</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jason Antwi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html> 
