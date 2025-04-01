@@ -346,16 +346,16 @@ img {
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 15px;
 }
 
 /* Add spacing between rows */
 .experience-grid > div:nth-child(5),
 .experience-grid > div:nth-child(9) {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
     .experience-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -370,7 +370,7 @@ img {
     .experience-grid > div:nth-child(5),
     .experience-grid > div:nth-child(7),
     .experience-grid > div:nth-child(9) {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 }
 
@@ -381,7 +381,7 @@ img {
     
     /* Remove row spacing for mobile layout */
     .experience-grid > div:nth-child(n+2) {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 }
 
@@ -394,17 +394,18 @@ img {
     box-shadow: var(--shadow);
     transition: var(--transition);
     height: 100%;
+    min-width: 0; /* Prevents flex items from growing beyond container */
 }
 
 .experience-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-dark);
 }
 
 .experience-header {
     background-color: var(--secondary-color);
     color: white;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -412,17 +413,17 @@ img {
 
 .experience-title {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .experience-date {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: normal;
     opacity: 0.9;
 }
 
 .experience-content {
-    padding: 20px;
+    padding: 12px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -430,30 +431,31 @@ img {
 
 .experience-organization {
     color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
     font-weight: 600;
 }
 
 .experience-description {
     color: #666;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 0.9rem;
 }
 
 .experience-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 6px;
+    margin-bottom: 10px;
 }
 
 .experience-tags span {
     background-color: #eef2f7;
     color: var(--primary-color);
-    padding: 3px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
 }
 
 .experience-btn {
