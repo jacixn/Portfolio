@@ -6,7 +6,7 @@
 files=(
   "experiences/network-security-engineer.html"
   "experiences/security-engineering-coursework.html"
-  "experiences/security-testing-engineer.html"
+  "experiences/security-tester.html"
   "experiences/advanced-network-security.html"
   "experiences/cybersecurity-strategy-consultant.html"
 )
