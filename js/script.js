@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (hamburger) {
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
     }
     
@@ -18,6 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -27,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                
+                // Smooth scroll to target
                 window.scrollTo({
                     top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
@@ -39,22 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
     
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', function() {
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             
-            if (pageYOffset >= sectionTop - 150) {
+            if (window.scrollY >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
         });
         
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
+        navItems.forEach(navItem => {
+            navItem.classList.remove('active');
+            if (navItem.getAttribute('href') === `#${current}`) {
+                navItem.classList.add('active');
             }
         });
     });
@@ -92,21 +115,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Optional: Add animation on scroll
-    const fadeInElements = document.querySelectorAll('.project-card, .skill-category, .timeline-item');
+    // Card hover effects for experience and project cards
+    const cards = document.querySelectorAll('.experience-card, .project-card');
     
-    function checkFade() {
-        fadeInElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        });
+    });
+    
+    // Add animation classes to elements as they scroll into view
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.section-header, .project-card, .skill-category, .experience-card');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight;
             
-            if (elementTop < windowHeight - 100) {
-                element.classList.add('fade-in');
+            if (elementPosition < screenPosition - 100) {
+                element.classList.add('animate-in');
             }
         });
-    }
+    };
     
-    // Add fade-in class to CSS for this to work
-    window.addEventListener('scroll', checkFade);
-    window.addEventListener('load', checkFade);
+    // Initial check and add scroll listener
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
 }); 
