@@ -698,10 +698,34 @@ img {
     color: #16a085;
 }
 
+/* Next Experience Navigation */
+.next-experience {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 30px;
+}
+
+.next-experience .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.next-experience .btn i {
+    transition: transform 0.3s ease;
+}
+
+.next-experience .btn:hover i {
+    transform: translateX(5px);
+}
+
 /* Footer */
 .footer {
-    background-color: var(--dark-color);
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
     text-align: center;
     padding: 20px 0;
 }
