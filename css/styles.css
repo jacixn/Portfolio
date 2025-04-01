@@ -345,8 +345,44 @@ img {
 /* Work Experience Section */
 .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
+}
+
+/* Add spacing between rows */
+.experience-grid > div:nth-child(5),
+.experience-grid > div:nth-child(9) {
+    margin-top: 20px;
+}
+
+@media (max-width: 1400px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Adjust row spacing for 2-column layout */
+    .experience-grid > div:nth-child(5),
+    .experience-grid > div:nth-child(9) {
+        margin-top: 0;
+    }
+    
+    .experience-grid > div:nth-child(3),
+    .experience-grid > div:nth-child(5),
+    .experience-grid > div:nth-child(7),
+    .experience-grid > div:nth-child(9) {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Remove row spacing for mobile layout */
+    .experience-grid > div:nth-child(n+2) {
+        margin-top: 20px;
+    }
 }
 
 .experience-card {
