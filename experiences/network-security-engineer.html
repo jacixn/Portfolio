@@ -93,7 +93,7 @@
                     
                     <!-- Network Topology Diagram - Now integrated in side-by-side layout -->
                     <figure class="network-diagram">
-                        <img src="../images/experiences/Network Security Engineer/network-topology.png" alt="Network Topology Diagram">
+                        <img src="../images/experiences/Network Security Engineer/network-topology.png" alt="Network Topology Diagram" style="max-width: 100%; height: auto; max-height: 300px; object-fit: contain;">
                         <figcaption>Figure 1: Network Topology - King's College London VM Network Security Test Environment</figcaption>
                     </figure>
                 </div>
@@ -126,6 +126,48 @@
                 
                 <!-- Project Evidence Gallery with the additional images -->
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--secondary-color);">Security Implementation Evidence</h3>
+                <style>
+                    .evidence-gallery {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1.5rem;
+                        margin-top: 1.5rem;
+                    }
+                    .evidence-item {
+                        background: white;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .evidence-item img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 250px;
+                        object-fit: contain;
+                        padding: 10px;
+                        background-color: #f8f8f8;
+                    }
+                    .evidence-caption {
+                        padding: 1rem;
+                        background-color: #fff;
+                    }
+                    .evidence-caption h4 {
+                        margin: 0 0 0.5rem 0;
+                        color: var(--primary-color);
+                    }
+                    .evidence-caption p {
+                        margin: 0;
+                        font-size: 0.9rem;
+                        color: #666;
+                    }
+                    @media (max-width: 768px) {
+                        .evidence-gallery {
+                            grid-template-columns: 1fr;
+                        }
+                    }
+                </style>
                 <div class="evidence-gallery">
                     <div class="evidence-item">
                         <img src="../images/experiences/Network Security Engineer/Iptables rules.png" alt="Iptables Firewall Rules">
