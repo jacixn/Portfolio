@@ -321,63 +321,334 @@
     </section>
 
     <!-- Technical Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills" class="section bg-light">
         <div class="container">
             <div class="section-header">
                 <h2>Technical Skills</h2>
-                <p>My expertise in cybersecurity and related technologies</p>
+                <p>My diverse expertise across cybersecurity, software development, and data analysis</p>
             </div>
+            
+            <style>
+                .skills-wrapper {
+                    margin-bottom: 50px;
+                }
+                .skills-container {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                    gap: 25px;
+                }
+                .skill-category {
+                    background-color: #fff;
+                    border-radius: var(--border-radius);
+                    padding: 30px;
+                    box-shadow: var(--shadow);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    height: 100%;
+                }
+                .skill-category:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-dark);
+                }
+                .skill-category h3 {
+                    color: var(--secondary-color);
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid var(--accent-color);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .skill-category h3 i {
+                    color: var(--primary-color);
+                    font-size: 1.5rem;
+                }
+                .skill-items {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 12px;
+                }
+                .skill-item {
+                    position: relative;
+                    padding: 10px 15px;
+                    border-radius: var(--border-radius);
+                    background-color: #f9f9f9;
+                    transition: transform 0.2s ease;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .skill-item:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+                }
+                .skill-item span {
+                    font-weight: 500;
+                    color: var(--secondary-color);
+                }
+                .skill-level {
+                    font-size: 0.8rem;
+                    margin-top: 5px;
+                    display: inline-block;
+                    padding: 2px 8px;
+                    border-radius: 10px;
+                }
+                .beginner .skill-level {
+                    background-color: #e9f7ef;
+                    color: #27ae60;
+                }
+                .intermediate .skill-level {
+                    background-color: #eafaf1;
+                    color: #2ecc71;
+                }
+                .advanced .skill-level {
+                    background-color: #d5f5e3;
+                    color: #16a085;
+                }
+                .skill-expertise {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 30px;
+                }
+                .expertise-header {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: var(--primary-color);
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+                .expertise-meter {
+                    width: 100%;
+                    height: 10px;
+                    background-color: #f0f0f0;
+                    border-radius: 5px;
+                    margin-bottom: 5px;
+                    overflow: hidden;
+                }
+                .expertise-fill {
+                    height: 100%;
+                    border-radius: 5px;
+                    background: linear-gradient(to right, #3498db, #2c3e50);
+                }
+                .expertise-labels {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    font-size: 0.7rem;
+                    color: #777;
+                }
+                .core-competencies {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin-top: 15px;
+                    justify-content: center;
+                }
+                .core-competency {
+                    background-color: rgba(74, 111, 165, 0.1);
+                    border-left: 3px solid var(--primary-color);
+                    color: var(--primary-color);
+                    padding: 8px 15px;
+                    border-radius: 3px;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+                @media (max-width: 768px) {
+                    .skill-items {
+                        grid-template-columns: 1fr;
+                    }
+                    .skills-container {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+
+            <!-- Expertise Level Indicator -->
+            <div class="skill-expertise">
+                <div class="expertise-header">Cybersecurity Specialisation Focus</div>
+                <div class="expertise-meter">
+                    <div class="expertise-fill" style="width: 85%;"></div>
+                </div>
+                <div class="expertise-labels">
+                    <span>General IT</span>
+                    <span>Development</span>
+                    <span>Network Security</span>
+                    <span>Offensive Security</span>
+                    <span>AI Security</span>
+                </div>
+                
+                <div class="core-competencies">
+                    <div class="core-competency">Threat Detection & Analysis</div>
+                    <div class="core-competency">Secure System Design</div>
+                    <div class="core-competency">Security Assessment</div>
+                    <div class="core-competency">AI-Driven Security</div>
+                </div>
+            </div>
+
+            <div class="skills-wrapper">
+                <div class="skills-container">
+                    <!-- Cybersecurity Tools -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-shield-alt"></i> Security Tools & Technologies</h3>
+                        <div class="skill-items">
+                            <div class="skill-item advanced">
+                                <span>Wireshark</span>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                            <div class="skill-item advanced">
+                                <span>Metasploit</span>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Nmap</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item advanced">
+                                <span>Burp Suite</span>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>ModSecurity</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Snort IDS</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Fail2Ban</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Splunk</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Programming & Development -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming & Development</h3>
+                        <div class="skill-items">
+                            <div class="skill-item advanced">
+                                <span>Python</span>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>PHP</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Bash Scripting</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>C/C++</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>MySQL</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Flask</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item beginner">
+                                <span>JavaScript</span>
+                                <div class="skill-level">Beginner</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Web Development</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI & Data Science -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> AI & Data Science</h3>
+                        <div class="skill-items">
+                            <div class="skill-item intermediate">
+                                <span>Machine Learning</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Natural Language Processing</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Data Visualisation</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>CountVectorizer</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item beginner">
+                                <span>Logistic Regression</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Web Scraping</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item intermediate">
+                                <span>Data Processing</span>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-item beginner">
+                                <span>BERT Models</span>
+                                <div class="skill-level">Beginner</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="skills-container">
-                <!-- Security Tools -->
+                <!-- System Administration -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-shield-alt"></i> Security Tools</h3>
-                    <div class="skill-grid">
+                    <h3><i class="fas fa-server"></i> System & Network Administration</h3>
+                    <div class="skill-items">
                         <div class="skill-item advanced">
-                            <span>Wireshark</span>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-                        <div class="skill-item advanced">
-                            <span>Metasploit</span>
+                            <span>Linux (Ubuntu)</span>
                             <div class="skill-level">Advanced</div>
                         </div>
                         <div class="skill-item intermediate">
-                            <span>Nessus</span>
+                            <span>Apache Configuration</span>
                             <div class="skill-level">Intermediate</div>
                         </div>
-                        <div class="skill-item advanced">
-                            <span>Burp Suite</span>
-                            <div class="skill-level">Advanced</div>
+                        <div class="skill-item intermediate">
+                            <span>SSH Hardening</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>SSL/TLS Implementation</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Firewall Configuration</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>VirtualBox</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Network Traffic Analysis</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>System Monitoring</span>
+                            <div class="skill-level">Intermediate</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Programming -->
+                <!-- Cloud & DevOps -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="skill-grid">
-                        <div class="skill-item advanced">
-                            <span>Python</span>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-                        <div class="skill-item intermediate">
-                            <span>Bash</span>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item intermediate">
-                            <span>C++</span>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item beginner">
-                            <span>JavaScript</span>
-                            <div class="skill-level">Beginner</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud & Infrastructure -->
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-                    <div class="skill-grid">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skill-items">
                         <div class="skill-item intermediate">
                             <span>AWS</span>
                             <div class="skill-level">Intermediate</div>
@@ -393,6 +664,61 @@
                         <div class="skill-item beginner">
                             <span>Kubernetes</span>
                             <div class="skill-level">Beginner</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>CI/CD Pipelines</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item beginner">
+                            <span>Terraform</span>
+                            <div class="skill-level">Beginner</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Git/GitHub</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item beginner">
+                            <span>Cloud Security</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Security Analysis -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-search"></i> Security Analysis & Testing</h3>
+                    <div class="skill-items">
+                        <div class="skill-item intermediate">
+                            <span>Vulnerability Assessment</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Penetration Testing</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item advanced">
+                            <span>Threat Intelligence</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Security Monitoring</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>OSINT Techniques</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item advanced">
+                            <span>Log Analysis</span>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Incident Response</span>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item intermediate">
+                            <span>Security Reporting</span>
+                            <div class="skill-level">Intermediate</div>
                         </div>
                     </div>
                 </div>
