@@ -13,7 +13,7 @@
     --text-light: #fcfcfc;
     --font-primary: 'Roboto', sans-serif;
     --font-secondary: 'Source Sans Pro', sans-serif;
-    --transition: all 0.3s ease;
+    --transition: all 0.15s ease;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --shadow-dark: 0 15px 30px rgba(0, 0, 0, 0.2);
     --border-radius: 12px;
@@ -21,19 +21,19 @@
 
 /* Global Animation Keyframes */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
+    50% { transform: scale(1.02); }
     100% { transform: scale(1); }
 }
 
 @keyframes float {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); }
     100% { transform: translateY(0); }
 }
 
@@ -105,7 +105,7 @@ img {
     color: var(--accent-color);
     border-radius: var(--border-radius);
     font-weight: 600;
-    transition: var(--transition);
+    transition: all 0.15s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -120,7 +120,7 @@ img {
     width: 100%;
     height: 100%;
     background-color: var(--accent-color);
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     z-index: -1;
 }
 
@@ -224,7 +224,7 @@ img {
     background-clip: text;
     color: transparent;
     background-size: 200% 200%;
-    animation: gradientFlow 5s ease infinite;
+    animation: gradientFlow 3s ease infinite;
     display: inline-block;
 }
 
@@ -268,7 +268,7 @@ img {
     position: absolute;
     bottom: -5px;
     left: 0;
-    transition: width 0.3s ease;
+    transition: width 0.15s ease;
     border-radius: 2px;
 }
 
@@ -355,7 +355,7 @@ img {
 
 .hero-text {
     flex: 1;
-    animation: fadeIn 1s ease;
+    animation: fadeIn 0.5s ease;
 }
 
 .intro-line {
@@ -364,8 +364,8 @@ img {
     margin-bottom: 10px;
     font-weight: 500;
     opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-    animation-delay: 0.2s;
+    animation: fadeIn 0.4s ease forwards;
+    animation-delay: 0.05s;
 }
 
 .hero-text h1 {
@@ -373,8 +373,8 @@ img {
     margin-bottom: 20px;
     color: var(--secondary-color);
     opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-    animation-delay: 0.4s;
+    animation: fadeIn 0.4s ease forwards;
+    animation-delay: 0.1s;
     line-height: 1.2;
 }
 
@@ -389,9 +389,9 @@ img {
     overflow: hidden;
     width: 0;
     animation: 
-        typing 2s steps(25, end) forwards,
-        blink 0.8s infinite;
-    animation-delay: 1s;
+        typing 1s steps(25, end) forwards,
+        blink 0.5s infinite;
+    animation-delay: 0.2s;
 }
 
 .hero-text p {
@@ -404,19 +404,19 @@ img {
 
 .fade-in {
     opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
+    animation: fadeIn 0.4s ease forwards;
 }
 
 .hero-text p:nth-of-type(1) {
-    animation-delay: 1.5s;
+    animation-delay: 0.3s;
 }
 
 .hero-text p:nth-of-type(2) {
-    animation-delay: 1.8s;
+    animation-delay: 0.4s;
 }
 
 .hero-text p:nth-of-type(3) {
-    animation-delay: 2.1s;
+    animation-delay: 0.5s;
 }
 
 .skill-highlights {
@@ -437,7 +437,7 @@ img {
     align-items: center;
     gap: 8px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -450,23 +450,23 @@ img {
 
 .animated-tag {
     opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 0.3s ease forwards;
 }
 
 .animated-tag:nth-child(1) {
-    animation-delay: 2.3s;
+    animation-delay: 0.55s;
 }
 
 .animated-tag:nth-child(2) {
-    animation-delay: 2.5s;
+    animation-delay: 0.6s;
 }
 
 .animated-tag:nth-child(3) {
-    animation-delay: 2.7s;
+    animation-delay: 0.65s;
 }
 
 .animated-tag:nth-child(4) {
-    animation-delay: 2.9s;
+    animation-delay: 0.7s;
 }
 
 .skill-tag i {
@@ -480,8 +480,8 @@ img {
     align-items: center;
     position: relative;
     opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 0.8s;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.2s;
 }
 
 .image-frame {
@@ -489,7 +489,7 @@ img {
     border-radius: 50%;
     padding: 10px;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
 }
 
 .image-frame::before {
@@ -524,7 +524,7 @@ img {
     position: relative;
     z-index: 2;
     transform: translateY(0);
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
 }
 
 .home-contact:hover {
@@ -579,7 +579,7 @@ img {
     display: flex;
     align-items: center;
     gap: 15px;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
 }
 
 .contact-item:hover {
@@ -589,7 +589,7 @@ img {
 .contact-item i {
     font-size: 1.5rem;
     color: var(--primary-color);
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
 }
 
 .contact-item:hover i {
@@ -611,7 +611,7 @@ img {
     background-color: #f5f5f5;
     border-radius: 50%;
     color: var(--primary-color);
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -642,7 +642,7 @@ img {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
     height: 100%;
     min-width: 0;
     max-width: 100%;
@@ -659,7 +659,7 @@ img {
     height: 100%;
     background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(76, 201, 240, 0.05));
     opacity: 0;
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
     z-index: 0;
 }
 
@@ -1058,13 +1058,13 @@ img {
 
 /* Animation classes */
 .animate-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.4s ease-out forwards;
 }
 
 .section-header {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(20px);
+    transition: all 0.4s ease-out;
 }
 
 .section-header.animate-in {
@@ -1074,8 +1074,8 @@ img {
 
 .project-card, .skill-category, .experience-card {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .project-card.animate-in, .skill-category.animate-in, .experience-card.animate-in {
@@ -1085,13 +1085,13 @@ img {
 
 /* Staggered animation for cards */
 .project-card:nth-child(2), .skill-category:nth-child(2), .experience-card:nth-child(2) {
-    transition-delay: 0.2s;
+    transition-delay: 0.05s;
 }
 
 .project-card:nth-child(3), .skill-category:nth-child(3), .experience-card:nth-child(3) {
-    transition-delay: 0.4s;
+    transition-delay: 0.1s;
 }
 
 .project-card:nth-child(4), .skill-category:nth-child(4), .experience-card:nth-child(4) {
-    transition-delay: 0.6s;
+    transition-delay: 0.15s;
 } 

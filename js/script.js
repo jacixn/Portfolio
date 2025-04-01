@@ -122,11 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px)';
             this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+            this.style.transition = 'all 0.15s ease';
         });
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
             this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            this.style.transition = 'all 0.15s ease';
         });
     });
     
